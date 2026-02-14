@@ -1,2 +1,3 @@
-# smash
-A small Unix-like shell
+# minus
+
+A mini Unix-like shell
