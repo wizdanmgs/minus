@@ -4,7 +4,7 @@ use std::path::Path;
 use crate::{error::ShellError, parser::ast::SimpleCommand};
 
 pub fn run(cmd: &SimpleCommand) -> Result<(), ShellError> {
-    let target = match cmd.args.get(0) {
+    let target = match cmd.args.first() {
         Some(path) if path == "~" => home_dir()?,
         Some(path) => path.clone(),
         None => home_dir()?,

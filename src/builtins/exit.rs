@@ -4,7 +4,7 @@ use crate::shell::ShellSignal;
 
 pub fn run(cmd: &SimpleCommand) -> Result<ShellSignal, ShellError> {
     // Support: exit <code>
-    let code = match cmd.args.get(0) {
+    let code = match cmd.args.first() {
         Some(arg) => arg
             .parse::<i32>()
             .map_err(|_| ShellError::Builtin("exit: invalid exit code".into()))?,
